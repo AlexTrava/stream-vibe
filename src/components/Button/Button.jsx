@@ -13,7 +13,7 @@ const Button = (props) => {
 		mode = '',
 		iconPosition = 'before',
 		isLabelHidden = false,
-
+		hasFillIcon,
 	} = props;
 
 	const isLink = !!href;
@@ -26,6 +26,7 @@ const Button = (props) => {
 		<Icon
 			className='button__icon'
 			name={iconName}
+			hasFill={hasFillIcon}
 		/>
 	);
 

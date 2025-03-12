@@ -1,7 +1,8 @@
 import './Header.scss'
 import Logo from "@/components/Logo";
 import cn from 'classnames'
-import Button from '@/components/Button/index.js'
+import Button from '@/components/Button'
+import BurgerButton from '@/components/BurgerButton'
 
 const Header = (props) => {
   const {url} = props;
@@ -23,41 +24,50 @@ const Header = (props) => {
       href:'/subscriptions',
     },
   ];
+
     return (
-        <header className='header'>
+        <header className='header' data-js-overlay-menu=''>
             <div className="header__inner container">
                 <Logo title='Home' loading='eager' className='header__logo'/>
-              <nav className="header__menu">
-                <ul className="header__menu-list">
-                  {
-                    menuItems.map(({label,href},index) => (
-                      <li className='header__menu-item' key={index}>
-                        <a href={href} className={cn('header__menu-link',{
-                          'is-active': href === url,
-                        })}>
-                          {label}
-                        </a>
-                      </li>
-                    ))
-                  }
-                </ul>
-              </nav>
-              <div className="header__actions">
-                <Button
-                  className='header__button'
-                  label='Search'
-                  iconName='search'
-                  mode='transparent'
-                  isLabelHidden
-                />
-                <Button
-                  className='header__button'
-                  label='Notification'
-                  iconName='notification'
-                  mode='transparent'
-                  isLabelHidden
-                />
-              </div>
+              <dialog
+                className="header__overlay-menu-dialog"
+                data-js-overlay-menu-dialog=''>
+                <nav className="header__menu">
+                  <ul className="header__menu-list">
+                    {
+                      menuItems.map(({label, href}, index) => (
+                        <li className='header__menu-item' key={index}>
+                          <a href={href} className={cn('header__menu-link', {
+                            'is-active': href === url,
+                          })}>
+                            {label}
+                          </a>
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </nav>
+                <div className="header__actions">
+                  <Button
+                    className='header__button'
+                    label='Search'
+                    iconName='search'
+                    mode='transparent'
+                    isLabelHidden
+                  />
+                  <Button
+                    className='header__button'
+                    label='Notification'
+                    iconName='notification'
+                    mode='transparent'
+                    isLabelHidden
+                  />
+                </div>
+              </dialog>
+              <BurgerButton
+                className='header__burger-button visible-tablet'
+                extraAttributes={{'data-js-overlay-menu-burger-button':''}}
+              />
             </div>
         </header>
     )
