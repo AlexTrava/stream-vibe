@@ -14,6 +14,7 @@ const Button = (props) => {
 		iconPosition = 'before',
 		isLabelHidden = false,
 		hasFillIcon,
+		extraAttrs,
 	} = props;
 
 	const isLink = !!href;
@@ -33,6 +34,7 @@ const Button = (props) => {
 	return (
 		<Component
 			{...specificProps}
+			{...extraAttrs}
 			aria-label={title}
 			title={title}
 			className={cn(className,'button', {
