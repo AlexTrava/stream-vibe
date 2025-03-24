@@ -3,12 +3,14 @@ import { Head } from "minista";
 import Header from "@/layouts/Header";
 import Content from "@/layouts/Content";
 import Footer from "@/layouts/Footer";
+import Banner from '@/sections/Banner'
 
 export default function (props) {
     const {
       children,
       title,
       url,
+      isHeaderFixed,
     } = props;
     return (
         <>
@@ -20,9 +22,10 @@ export default function (props) {
                 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
                 <link rel="manifest" href="/site.webmanifest"/>
             </Head>
-            <Header url={url} />
-            <Content>
+            <Header url={url} isFixed={isHeaderFixed}/>
+            <Content isResetPaddingTop={isHeaderFixed}>
                 {children}
+              <Banner/>
             </Content>
             <Footer/>
         </>
