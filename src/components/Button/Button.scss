@@ -50,8 +50,13 @@
   }
 
   &--black-08,
-  &--black-10 {
+  &--black-10,
+  &--black-06, {
     border: var(--border);
+  }
+
+  &--black-06 {
+    background-color: var(--color-black-06);
   }
 
   &--black-08 {

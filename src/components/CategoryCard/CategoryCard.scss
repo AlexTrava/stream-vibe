@@ -1,9 +1,9 @@
 .category-card {
-  --categoryCardImagesGradientOpacity:1;
+  --categoryCardImagesGradientOpacity: 1;
 
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  padding: fluid(30,20);
+  padding: fluid(30, 20);
   background-color: var(--color-black-10);
   border: var(--border);
   border-radius: var(--border-radius-l);
@@ -13,10 +13,14 @@
   }
 
   @include hover {
-    --categoryCardImagesGradientOpacity:0;
+    --categoryCardImagesGradientOpacity: 0;
 
     color: var(--color-white);
     border-color: currentColor;
+  }
+
+  &:focus-visible {
+    outline-offset: -2px;
   }
 
   &__images {
@@ -27,6 +31,7 @@
 
     &::after {
       @include abs-cover;
+
       content: '';
       background-image: linear-gradient(180deg, rgba(26, 26, 26, 0.00) 0%, var(--color-black-10) 101.79%);
       opacity: var(--categoryCardImagesGradientOpacity);
@@ -36,7 +41,6 @@
 
   &__image {
     width: 100%;
-    height: fluid(124,68);
     object-fit: cover;
     border-radius: var(--border-radius-m);
 
@@ -53,13 +57,17 @@
   }
 
   &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: fluid-to-laptop(4, 2);
     font-size: inherit;
     font-weight: 600;
   }
 
   &__icon {
     &.icon {
-      --iconSize: #{fluid(30,20)};
+      --iconSize: #{fluid(30, 20)};
     }
   }
 }

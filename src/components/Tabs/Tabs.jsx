@@ -10,6 +10,7 @@ const Tabs = (props) => {
 		title,
 		items = [],
 		navigationTargetElementId = null,
+		isEnableOnlyOnMobile = false,
 	} = props;
 
 	const titleFormatted = getIdFromTitle(title);
@@ -18,7 +19,9 @@ const Tabs = (props) => {
 
 	return (
 		<div
-			className={cn(className, 'tabs')}
+			className={cn(className, 'tabs', {
+				'tabs--enable-only-on-mobile': isEnableOnlyOnMobile,
+			})}
 			data-js-tabs={JSON.stringify({
 				navigationTargetElementId,
 			})}
