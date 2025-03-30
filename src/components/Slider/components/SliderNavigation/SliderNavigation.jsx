@@ -7,13 +7,17 @@ const SliderNavigation = (props) => {
 		className,
 		id,
 		mode='',
+		position='',
 		hasPagination = true,
+		isHiddenMobile,
 	} = props;
 
 	return (
 		<div
 			className={cn(className, 'slider-navigation', {
 				[`slider-navigation--${mode}`]: mode,
+				[`slider-navigation--${position}`]: position,
+				'hidden-mobile': isHiddenMobile,
 			})}
 		  id={id}
 			data-js-slider-navigation=''
