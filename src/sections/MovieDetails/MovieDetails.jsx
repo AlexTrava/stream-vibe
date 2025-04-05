@@ -92,18 +92,6 @@ const MovieDetails = (props) => {
 				Detailed movie information
 			</h2>
 			<div className="movie-details__main">
-				{
-					seasons && (
-						<div className="movie-details__panel movie-details__panel--seasons">
-							<div className="movie-details__group movie-details__group--big-gap-y">
-								<h3 className="h4">
-									Seasons and Episodes
-								</h3>
-								{seasons}
-							</div>
-						</div>
-					)
-				}
 				<div className="movie-details__panel movie-details__panel--description">
 					<div className="movie-details__group">
 						<h3 className="movie-details__title">
