@@ -9,7 +9,11 @@ import Icon from '@/components/Icon/Icon.jsx'
 import Tags from '@/components/Tags/Tags.jsx'
 import Ratings from '@/components/Ratings/index.js'
 
-const MovieDetails = () => {
+const MovieDetails = (props) => {
+	const {
+		seasons,
+	} = props
+
 	const titleId = 'movie-details-title';
 	const castSliderNavigationId = 'movie-card-slider-navigation';
 

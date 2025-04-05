@@ -3,7 +3,9 @@ import cn from 'classnames'
 
 const AccordionGroup = (props) => {
 	const {
+		className,
 		columns = 1,
+		mode='',
 		children,
 		isOrderedList = true,
 	} = props;
@@ -12,9 +14,10 @@ const AccordionGroup = (props) => {
 	const ListTag = isOrderedList ? 'ol' : 'ul';
 
 	return (
-		<ListTag className={cn('accordion-group', {
+		<ListTag className={cn(className,'accordion-group', {
 			[`accordion-group--${columns}-columns`]: columns > 1,
 			'accordion-group--has-counter': isOrderedList,
+			[`accordion-group--${mode}`]: mode,
 		})}>
 			{
 				children.map((child, index) => (
